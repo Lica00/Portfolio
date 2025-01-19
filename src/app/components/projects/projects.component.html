@@ -1,0 +1,15 @@
+
+<div class="background">
+
+    <section id="progetti">
+        <h1> Progetti </h1>
+
+        <div class="container">
+            @for ( pro of progetti; track $index) {
+                <app-single-projects [progetto]="pro"></app-single-projects>
+            }
+        </div>
+
+    </section>
+
+</div>

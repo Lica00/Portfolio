@@ -1,0 +1,24 @@
+
+
+<div class="background">
+
+<header id="home">
+    
+    <div> <p> {{nome | uppercase }} </p> </div>
+
+    <button type="button" (click)="toggle()">
+        <img src="/assets/sprite.png" alt="menu icon"/>
+    </button>
+    
+    <nav>
+        <ul [ngClass]="{ 'move' : showNavMobile() }">
+            @for (  voce of voci; track $index) {
+                <li (click)="toggle()"> <a (click)="scrollTo(voce)"> {{ voce | uppercase }} </a> </li>
+            }
+        </ul>
+    </nav>
+
+</header>
+
+</div>
+

@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+@use '@angular/material' as mat;
+@use 'palette/theme-colors.scss' as theme;
+
+*{
+    box-sizing: border-box;
+    padding: 0px 0px;
+    border: none;
+    margin: 0px 0px;     
+}
+
+ul { list-style: none; } 
+a { text-decoration: none; color: black; }
+button{ background-color: transparent; }
+
+
+html, body{ overflow-x: hidden; }
+body{ font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html{
+  font-size: 100%; 
+
+  // Inutilizzato --> sviluppo futuro
+  @include mat.theme((
+    color: ( 
+      theme-type: light, 
+      primary: theme.$primary-palette, 
+      tertiary: theme.$tertiary-palette, 
+      ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+h1{ font-size: 1.5rem; }
+h2{ font-size: 1.25rem; }
+p, li, a{ font-size: 1rem; }
+span{ font-weight: bold; }
+
+// Incrementa font mobile - desktop 
+@media all and ( min-width: 800px ){ html{ font-size: 115%;} }
+

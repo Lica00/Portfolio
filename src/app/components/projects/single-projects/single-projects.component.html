@@ -1,0 +1,29 @@
+
+
+<section>
+
+    <h2> {{ progetto.name }} </h2> 
+
+    <picture >
+
+        <!-- Dispositivi width 0 - 799  -->
+        <source [srcset]="progetto.smallImage + '.webp'" media="(max-width: 799px)"  type="image/webp">
+        <source [srcset]="progetto.smallImage + '.png'"  media="(max-width: 799px)"  type="image/png">
+
+        <!-- Dispositivi width  800 - x  -->
+        <source [srcset]="progetto.image + '.webp'"      media="(min-width: 800px)"  type="image/webp">
+        <source [srcset]="progetto.image + '.png'"       media="(min-width: 800px)"  type="image/png">
+
+        <!-- Fallback -->
+        <img [src]="progetto.smallImage + '.png'" [alt]=" 'preview ' + ( progetto.name | lowercase ) "/>
+    
+    </picture>
+
+    <div class="containerBtn">
+        <a [href]="progetto.git" target="_blank"> GitHub </a>
+        <a [href]="progetto.live" target="_blank"> Live Demo  </a>
+    </div>
+
+</section>
+
+

@@ -1,0 +1,62 @@
+
+<div class="background"> 
+ 
+<section id="about">
+
+    <div class="info">
+
+        <div>
+            <h1> About </h1>
+            @for( info of infoAbout; track $index){ <p [innerHTML]="info"> </p> }
+        </div>
+  
+        <div>
+            <h1> Skills </h1>
+            <ul>
+                @for( skill of skills; track $index ){ 
+                    <li> 
+                        <div> <img src="/assets/sprite.png" [alt]=" ( skill | lowercase ) + ' icon' "/> </div>             
+                        <p> {{skill}} </p>
+                    </li>
+                }
+            </ul>
+        </div>
+
+    </div>
+
+    <picture >
+
+        <!-- Dispositivi width 0 - 949  -->
+        <source srcset="assets/dev_300.webp" media="(max-width: 949px)" type="image/webp">
+        <source srcset="assets/dev_300.png" media="(max-width: 949px)" type="image/png">
+
+        <!-- Dispositivi width 950 - x  -->
+        <source srcset="assets/dev_500.webp" media="(min-width: 950px)" type="image/webp">
+        <source srcset="assets/dev_500.png" media="(min-width: 950px)" type="image/png">
+
+        <!-- Fallback -->
+        <img src="assets/dev_500.png" alt="cartoon developer"/>
+    </picture>
+
+</section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
