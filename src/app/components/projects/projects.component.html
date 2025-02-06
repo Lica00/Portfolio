@@ -1,15 +1,21 @@
 
-<div class="background">
 
-    <section id="progetti">
-        <h1> Progetti </h1>
-
-        <div class="container">
-            @for ( pro of progetti; track $index) {
-                <app-single-projects [progetto]="pro"></app-single-projects>
-            }
-        </div>
-
-    </section>
+<div class="animate-fade animate-once animate-duration-500 animate-ease-linear 
+  inset-x-0 top-0 mx-auto my-5 w-fit rounded-3xl bg-gray-800 p-2 min-[1880px]:absolute"
+>
+  <a routerLink="/home"> <app-icons [icon]="3"></app-icons> </a>
 
 </div>
+
+<section class="flex flex-wrap justify-center gap-8">
+
+  @for (pro of progetti(); track $index) {
+
+    <app-single-projects [progetto]="pro"
+      class="animate-fade animate-once animate-ease-linear animate-duration-500 
+      nth-1:animate-delay-0 nth-2:animate-delay-200 nth-3:animate-delay-400 nth-4:animate-delay-600 nth-5:animate-delay-800"
+    ></app-single-projects>
+    
+  }
+
+</section>

@@ -1,16 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { progetto } from '../../../models/customType';
+import { progetto } from '../../../models/customTypes';
 
 @Component({
   selector: 'app-single-projects',
-  imports: [ CommonModule],
-  templateUrl: './single-projects.component.html',
-  styleUrl: './single-projects.component.scss'
+  imports: [CommonModule],
+  templateUrl: './single-projects.component.html'
 })
 export class SingleProjectsComponent {
 
-  @Input()
-  progetto! : progetto;
+  progetto : InputSignal<progetto | undefined> = input<progetto>();
 
 }

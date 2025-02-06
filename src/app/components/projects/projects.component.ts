@@ -1,17 +1,18 @@
-import { Component, inject } from '@angular/core';
-import { SingleProjectsComponent } from "./single-projects/single-projects.component";
-import { progetto } from '../../models/customType';
+import { Component, inject, WritableSignal } from '@angular/core';
+import { SingleProjectsComponent } from './single-projects/single-projects.component';
+import { progetto } from '../../models/customTypes';
+import { IconsComponent } from "../icons/icons.component";
+import { RouterLink } from '@angular/router';
 import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-projects',
-  imports: [SingleProjectsComponent],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  imports: [SingleProjectsComponent, IconsComponent, RouterLink],
+  templateUrl: './projects.component.html'
 })
 export class ProjectsComponent {
 
   dataS : DataService = inject(DataService);
-  progetti : progetto[] = this.dataS.projects;
-
+  progetti : WritableSignal<progetto[]> = this.dataS.progetti;
+ 
 }

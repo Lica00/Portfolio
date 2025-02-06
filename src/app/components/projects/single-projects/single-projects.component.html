@@ -1,29 +1,30 @@
 
 
-<section>
+<section class="flex flex-col items-center rounded-xl border border-gray-700 bg-gray-800 px-2.5 py-5 text-white" >
 
-    <h2> {{ progetto.name }} </h2> 
+  <h2 class="text-xl font-bold">{{ progetto()?.name }}</h2>
 
-    <picture >
+  <!-- mobile  - img 400px - max-width: 208px -->
+  <!-- desktop - img 600px - max-width: 224px -->
+  <picture>
 
-        <!-- Dispositivi width 0 - 799  -->
-        <source [srcset]="progetto.smallImage + '.webp'" media="(max-width: 799px)"  type="image/webp">
-        <source [srcset]="progetto.smallImage + '.png'"  media="(max-width: 799px)"  type="image/png">
+    <!-- Dispositivi width  768 - x  -->
+    <source [srcset]="progetto()?.image + '.webp'" media="(min-width: 768px)" type="image/webp"/>
+    <source [srcset]="progetto()?.image + '.png'" media="(min-width: 768px)" type="image/png"/>
 
-        <!-- Dispositivi width  800 - x  -->
-        <source [srcset]="progetto.image + '.webp'"      media="(min-width: 800px)"  type="image/webp">
-        <source [srcset]="progetto.image + '.png'"       media="(min-width: 800px)"  type="image/png">
+    <!-- Dispositivi width 0 - 765  -->
+    <source [srcset]="progetto()?.smallImage + '.webp'" type="image/webp" />
+    <source [srcset]="progetto()?.smallImage + '.png'" type="image/png" />
 
-        <!-- Fallback -->
-        <img [src]="progetto.smallImage + '.png'" [alt]=" 'preview ' + ( progetto.name | lowercase ) "/>
-    
-    </picture>
+    <!-- Fallback -->
+    <img [src]="progetto()?.smallImage + '.png'" [alt]="'preview ' + (progetto()?.name | lowercase)" class="m-8 max-w-52 md:max-w-56"/>
+  </picture>
 
-    <div class="containerBtn">
-        <a [href]="progetto.git" target="_blank"> GitHub </a>
-        <a [href]="progetto.live" target="_blank"> Live Demo  </a>
-    </div>
-
+  <div class="flex w-3/4 justify-evenly">
+    @for (link of progetto()?.links; track $index) {
+        <a class="block rounded-xl bg-gray-700 p-2 shadow-sm shadow-gray-600 transition-all hover:-translate-y-1"  [href]="link" target="_blank">
+            {{ $index ? "Live Demo" : "GitHub" }}
+        </a>
+    }
+  </div>
 </section>
-
-
